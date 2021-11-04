@@ -38,4 +38,16 @@ describe('03_separation-of-concerns-demo routes', () => {
         });
       });
   });
+
+  it('it updates an order by id', () => {
+    return request(app)
+      .update('/api/v1/orders/1')
+      .send({ id: 1, quantity: 12 })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quantity: 12,
+        });
+      });
+  });
 });
