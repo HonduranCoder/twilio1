@@ -50,4 +50,12 @@ describe('03_separation-of-concerns-demo routes', () => {
         });
       });
   });
+
+  it('it deletes an order in the db by id', () => {
+    return request(app)
+      .delete('/api/v1/orders/1')
+      .then((res) => {
+        expect(res.body).toEqual('Not Found');
+      });
+  });
 });
