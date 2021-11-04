@@ -11,7 +11,7 @@ jest.mock('twilio', () => () => ({
 }));
 
 describe('03_separation-of-concerns-demo routes', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     return setup(pool);
   });
 
@@ -35,6 +35,18 @@ describe('03_separation-of-concerns-demo routes', () => {
         expect(res.body).toEqual({
           id: '1',
           quantity: 10,
+        });
+      });
+  });
+
+  it('it updates an order by id', () => {
+    return request(app)
+      .update('/api/v1/orders/1')
+      .send({ id: 1, quantity: 12 })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '1',
+          quantity: 12,
         });
       });
   });
