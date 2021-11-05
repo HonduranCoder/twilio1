@@ -29,7 +29,7 @@ describe('Order Service Test', () => {
   });
   it('should delete by id', async () => {
     const order = await OrderService.delete(1);
-    expect(order).toEqual({ id: '1', quantity: 12 });
+    expect(order).toEqual({ id: '1', quantity: 2 });
   });
   it('should get all', async () => {
     const order = await OrderService.getAll();
